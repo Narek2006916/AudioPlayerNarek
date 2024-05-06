@@ -1,0 +1,123 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+html,
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.main{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    /* background-image: url(https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-repeat: no-repeat;
+    background-size:cover ;
+    background-position-y: top;
+    background-position-x: center; */
+}
+
+.logo{
+    width: 100px;
+}
+
+.player{
+    background-color: rgba(224, 181, 72, 0.996);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left: 50%;
+    height: 350px;
+    width: 400px;
+    border-radius: 23px;
+    overflow: hidden;
+    box-shadow: 4px 10px 10px rgb(200, 240 ,50);
+}
+
+.row1{
+    background-image: url(https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    height: 40%;
+    width: 100%;
+    background-size: cover;
+    background-position-y: 37%;
+}
+
+#songTitle{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.row2{
+    height: 50%;
+    width: 100%;
+    background-color: #2C3E50 ;
+}
+
+.play{
+    height: 20%;
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+
+}
+
+.play img{
+    width: 10%;
+    height: auto;
+    margin-top: 10%
+}
+.seek-bar{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.handle{
+    height: 5px;
+    width: 80%;
+    background-color: aqua;
+    border-radius: 25px;
+}
+
+.fill{
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: lightblue;
+    z-index: 999;
+    margin-top: -1.5px;
+    margin-left: -1.5px;
+}
+
+.mute{
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.player-button{
+    display: flex;
+    width: 95%;
+    justify-content: flex-end;
+}
+
+.mute img{
+    width: 10%;
+    height: auto;
+    margin-top:5%;
+    margin-left: 5%;
+}
