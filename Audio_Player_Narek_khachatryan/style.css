@@ -26,7 +26,9 @@ body{
 }
 
 .logo{
-    width: 100px;
+    width: 150px;
+    position: absolute;
+    top: 0;
 }
 
 .player{
