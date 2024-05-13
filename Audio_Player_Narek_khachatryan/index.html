@@ -9,16 +9,19 @@
 </head>
 <body>
     <div class="main"></div>
-    <img class="logo" src="images/logo_blues_typography.png" alt="">
+    <img class="logo" src="images/94_Retro_Classic-ai (1).png" alt="">
+    <video autoplay muted loop id="myVideo">
+        <source src="images/603471_Abstract_Art_Backdrop_1920x1080.mp4" type="video/mp4">
+    </video>
     <div class="player">
         <div class="row1"></div>
         <div id="songTitle">Title</div>
         <div class="row2">
             <div class="play">
-                <img id="prev" src="images/previous.png" alt="">
-                <img id="play" src="images/play-button-arrowhead.png" onclick="playOrPause()" alt="">
-                <img id="next" src="images/next.png" alt="">
-                
+                <i id="prev" class="fa-solid fa-forward-fast fa-rotate-180"></i>
+                <i id="play" class="fa-solid fa-play"  onclick="playOrPause()"></i>
+                <i id="next" class="fa-solid fa-forward-fast"></i>
+
             </div>
             <div class="seek-bar">
                 <div class="handle">
@@ -41,7 +44,7 @@
 
 
 
-
+    <script src="https://kit.fontawesome.com/b6a51dd128.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
