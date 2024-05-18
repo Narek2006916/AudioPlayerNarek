@@ -1,8 +1,13 @@
 let data = {
     title: [
-        "James Brown – It's A Man's, Man's, Man's World",
-        "Pink Floyd - Shine on You Crazy Diamond",
-        "Gary Moore – Still Got The Blues",
+        "It's A Man's, Man's, Man's World",
+        "Shine on You Crazy Diamond",
+        "Still Got The Blues",
+    ],
+    singer: [
+        "James Brown",
+        "Pink Floyd",
+        "Gary Moore",
     ],
     song: [
         "music/James Brown – It's A Man's, Man's, Man's World.mp3",
@@ -14,24 +19,24 @@ let data = {
         "https://i1.sndcdn.com/artworks-000044442011-50k6ec-t500x500.jpg",
         "https://i.scdn.co/image/ab67616d0000b273b586fc87d8bde3ba953f233a",
     ],
-}
+};
 
 let song = new Audio();
+let currentSong = 0;
 
 window.onload = function() {
     playSong();
-}
-let currentSong = 0;
+};
 
 function playSong() {
     song.src = data.song[currentSong];
-    let songTitle = document.getElementById("songTitle");
-    songTitle.textContent = data.title[currentSong];
-    let img = document.getElementsByClassName("row1");
-    img[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")";
-    // let main = document.getElementsByClassName("main");
-    // main[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")";
-    song.play()
+    document.getElementById("songTitle").textContent = data.title[currentSong];
+    document.getElementById("songSinger").textContent = data.singer[currentSong];
+    document.getElementsByClassName("song-img")[0].style.backgroundImage = "url(" + data.poster[currentSong] + ")";
+    song.play();
+    updateTotalTime();
+    document.getElementById("play").classList.remove("fa-play");
+    document.getElementById("play").classList.add("fa-pause");
 }
 
 function playOrPause() {
@@ -47,59 +52,69 @@ function playOrPause() {
     }
 }
 
-
-song.addEventListener("timeupdate", function(){
-    let fill = document.getElementsByClassName("fill")
-    let position = song.currentTime / song.duration;
-    fill[0].style.width = position * 100 + "%";
-
+song.addEventListener("timeupdate", function() {
+    updateProgressBar();
     convertTime(song.currentTime);
-    if(song.ended){
-        next()
+    if (song.ended) {
+        next();
     }
 });
 
-function convertTime(seconds){
-    currentTime = document.getElementsByClassName("currentTime");
-    let min = Math.floor(seconds/ 60);
-    let sec = Math.floor(seconds % 60);
+function updateProgressBar() {
+    let seekBar = document.getElementById("seek-bar");
+    let position = (song.currentTime / song.duration) * 100;
+    seekBar.value = position;
+    seekBar.style.background = `linear-gradient(to right, #FFF ${position}%, #808080 ${position}%)`;
+}
 
+document.getElementById("seek-bar").addEventListener("input", function() {
+    let seekBar = document.getElementById("seek-bar");
+    let seekPosition = (seekBar.value / 100) * song.duration;
+    song.currentTime = seekPosition;
+    updateProgressBar();
+});
+
+document.getElementById("seek-bar").addEventListener("change", function() {
+    let seekBar = document.getElementById("seek-bar");
+    let seekPosition = (seekBar.value / 100) * song.duration;
+    song.currentTime = seekPosition;
+    updateProgressBar();
+});
+
+function convertTime(seconds) {
+    let currentTime = document.getElementById("currentTime");
+    let min = Math.floor(seconds / 60);
+    let sec = Math.floor(seconds % 60);
     min = (min < 10) ? "0" + min : min;
     sec = (sec < 10) ? "0" + sec : sec;
-    currentTime[0].textContent = min + ":" + sec;
-    totalTime(Math.round(song.duration))
+    currentTime.textContent = min + ":" + sec;
 }
 
-function totalTime(seconds){
-    let min = Math.floor(seconds/ 60);
-    let sec = Math.floor(seconds % 60);
-
-    min = Math.floor(seconds/ 60);
-    sec = Math.floor(seconds % 60);
-
-    currentTime[0].textContent += " / " + min + ":" + sec;
+function updateTotalTime() {
+    song.onloadedmetadata = function() {
+        let totalTime = document.getElementById("totalTime");
+        let min = Math.floor(song.duration / 60);
+        let sec = Math.floor(song.duration % 60);
+        min = (min < 10) ? "0" + min : min;
+        sec = (sec < 10) ? "0" + sec : sec;
+        totalTime.textContent = min + ":" + sec;
+        document.getElementById("seek-bar").max = 100;
+    }
 }
 
-function next(){
-    currentSong ++;
-    if(currentSong >= data.song.length){
-        currentSong = 0
+function next() {
+    currentSong++;
+    if (currentSong >= data.song.length) {
+        currentSong = 0;
     }
     playSong();
-    play.classList.add("fa-pause");
 }
 
-function prev(){
-    currentSong --;
-    if(currentSong < 0){
-        currentSong = data.song.length-1
+function prev() {
+    currentSong--;
+    if (currentSong < 0) {
+        currentSong = data.song.length - 1;
     }
     playSong();
-    song.pause
-    play.classList.add("fa-pause");
 }
-
-
-////
-
 

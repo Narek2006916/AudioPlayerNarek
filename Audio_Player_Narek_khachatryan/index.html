@@ -6,44 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Player</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-    <div class="main"></div>
-    <img class="logo" src="images/94_Retro_Classic-ai (1).png" alt="">
-    <video autoplay muted loop id="myVideo">
-        <source src="images/603471_Abstract_Art_Backdrop_1920x1080.mp4" type="video/mp4">
-    </video>
-    <div class="player">
-        <div class="row1"></div>
-        <div id="songTitle">Title</div>
-        <div class="row2">
-            <div class="play">
-                <i id="prev" class="fa-solid fa-forward-fast fa-rotate-180" onclick="prev()"></i>
-                <i id="play" class="fa-solid fa-play"  onclick="playOrPause()"></i>
-                <i id="next" class="fa-solid fa-forward-fast" onclick="next()"></i>
-
+<div class="player">
+    <img class="statusBar" src="/Audio_Player_Narek_khachatryan/images/Status Bar - Dark (1).png" alt="">
+    <h1>Playing now</h1>
+    <div class="music">
+        <div class="song-img"></div>
+        <div id="songTitle"></div>
+        <div id="songSinger"></div>
+        <div class="icons-music">
+            <i class="fa-solid fa-volume-low"></i>
+            <div class="repeatShuffle">
+                <i class="ph ph-repeat"></i>
+                <i class="fa-solid fa-shuffle"></i>
             </div>
-            <div class="seek-bar">
-                <div class="handle">
-                    <div class="fill">
-
-                    </div>
-                </div>
-            </div>
-            <div class="mute">
-                <div class="currentTime"> 00 : 00 / 00 : 00</div>
-                <div class="player-button">
-                    <img id="decrease" src="images/volume-down.png" alt="">
-                    <img id="mute" src="images/volume.png" alt="">
-                    <img id="increase" src="images/increase-volume.png" alt="">
-                </div>
-            </div>
-        </div> 
+        </div>
+        <div class="time">
+            <div id="currentTime">00:00</div>
+            <div id="totalTime">00:00</div>
+        </div>
+        <div class="seek-bar-container">
+            <input type="range" id="seek-bar" value="0" min="0" max="100">
+        </div>
+        <div class="playOrPause-icons">
+            <i id="prev" class="fa-solid fa-backward-step" onclick="prev()"></i>
+            <i id="play" class="fa-solid fa-play" onclick="playOrPause()"></i>
+            <i id="next" class="fa-solid fa-forward-step" onclick="next()"></i>
+        </div>
     </div>
-
-
-
-
+</div>
     <script src="https://kit.fontawesome.com/b6a51dd128.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
