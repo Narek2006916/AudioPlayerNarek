@@ -225,11 +225,11 @@ html, body {
 }
 
 #volume-container input:focus::-webkit-slider-thumb {
-    background: #fff; /* Slightly lighter green when focused */
+    background: #fff; 
 }
 
 #volume-container input:focus::-moz-range-thumb {
-    background: #fff; /* Slightly lighter green when focused */
+    background: #fff; 
 }
 
 
