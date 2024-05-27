@@ -417,6 +417,90 @@ document.getElementById("volume-slider").addEventListener("input", function () {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const playlistData = [
+        {
+            name: "Back To Black",
+            singer: "Amy Winehouse",
+            time: "4:00",
+            poster: "images/amy-winehouse-back-2-high.jpg",
+            index: 0 
+        },
+        {
+            name: "Skyfall",
+            singer: "Adele",
+            time: "4:46",
+            poster: "images/Skyfall.png",
+            index: 1 
+        },
+        {
+            name: "It's A Man's, Man's, Man's World",
+            singer: "James Brown",
+            time: "2:48",
+            poster: "images/James_Brown_the_man_world.jpg",
+            index: 2 
+        }
+    ];
+
+    const playlistPopup = document.getElementById("playlist-popup");
+    const playlistItems = document.getElementById("playlist-items");
+
+    function togglePlaylist() {
+        if (playlistPopup.style.display === "flex") {
+            playlistPopup.style.display = "none";
+        } else {
+            playlistPopup.style.display = "flex";
+            displayPlaylist();
+        }
+    }
+
+    function displayPlaylist() {
+        playlistItems.innerHTML = '';
+        playlistData.forEach(item => {
+            const playlistItem = document.createElement("div");
+            playlistItem.className = "playlist-item";
+            playlistItem.onclick = () => changeSong(item.index);
+            const img = document.createElement("img");
+            img.style.boxShadow = "inset 0 0 50px 10px rgba(255, 255, 255, 0.5), 0 0 100px 20px rgba(255, 255, 255, 0.3)";
+            img.src = item.poster;
+            playlistItem.appendChild(img);
+
+            const details = document.createElement("div");
+            details.className = "details";
+
+            const songName = document.createElement("div");
+            songName.className = "song-name";
+            songName.textContent = item.name;
+            details.appendChild(songName);
+
+            const singerName = document.createElement("div");
+            singerName.className = "singer-name";
+            singerName.textContent = item.singer;
+            details.appendChild(singerName);
+
+            const songTime = document.createElement("div");
+            songTime.className = "song-time";
+            songTime.textContent = item.time;
+            details.appendChild(songTime);
+
+            playlistItem.appendChild(details);
+            playlistItems.appendChild(playlistItem);
+        });
+    }
+    function changeSong(index) {
+        currentSong = index;
+        playSong();
+        togglePlaylist(); 
+    }
+
+    document.querySelector(".icons-play svg").onclick = togglePlaylist;
+    document.getElementById("close-btn").onclick = togglePlaylist;
+    window.onclick = function(event) {
+        if (event.target === playlistPopup) {
+            togglePlaylist();
+        }
+    };
+});
 
 
 

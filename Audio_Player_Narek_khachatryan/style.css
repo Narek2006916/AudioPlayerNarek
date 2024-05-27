@@ -33,15 +33,21 @@ html, body {
 
 .player {
     margin: 2% auto;
-    width: 430px;
-    height: 932px;
-    border-radius: 50px;
+    width: 467px;
+    height: 987px;
+    border-radius: 69px;
     background-color: #091227;
     position: relative;
 }
 
+.iphone{
+    position: absolute;
+    left: -6%;
+    z-index: -1;
+    top: -3%;
+}
 .statusBar {
-    width: 430px;
+    width: 100%;
 }
 
 .player h1 {
@@ -49,6 +55,7 @@ html, body {
     font-size: 20px;
     font-family: "Gilroy-Medium";
     text-align: center;
+    margin-top: 45px;
     margin-bottom: 62px;
 }
 
@@ -93,6 +100,7 @@ html, body {
     margin-bottom: 25px;
     position: relative;
     font-size: 20px;
+    z-index: 10;
 }
 .fa-repeat {
     margin-right: 12px;
@@ -109,6 +117,7 @@ html, body {
 }
 
 .seek-bar-container {
+    z-index: 10;
     position: relative;
     width: 318px;
     margin-bottom: 40px;
@@ -146,6 +155,7 @@ html, body {
 }
 
 #progress-bar {
+    z-index: 10;
     position: absolute;
     top: 0;
     left: 0;
@@ -157,11 +167,13 @@ html, body {
 }
 
 .playOrPause-icons {
+    z-index: 10;
     width: 172px;
     display: flex;
     justify-content: space-between;
     color: #EAF0FF;
     font-size: 30px;
+    margin: 0 auto;
 }
 
 .repeatShuffle {
@@ -243,6 +255,7 @@ html, body {
 
 
 #lyrics-container {
+    z-index: 10;
     max-height: 150px;
     overflow-y: auto;
     text-align: center;
@@ -262,4 +275,100 @@ html, body {
 .lyric-line.active {
     color: #EAF0FF;
     font-weight: bold;
+}
+
+
+.icons-play{
+    width: 313px;
+    display: flex;
+    align-items: center;
+}
+
+.icons-play svg{
+    position: absolute;
+}
+
+
+
+#playlist-popup {
+    position: relative;
+    top: -915px;
+    width: 467px;
+    left: 0;
+    margin: 0 auto;
+    display: none;
+}
+
+#playlist-popup .visible {
+    display: flex;
+}
+
+#playlist-content {
+    width: 467px;
+    height: auto;
+    background: #091227;
+    margin-top: 460px;
+    z-index: 17;
+    border-radius: 0px 0px 100px 100px;
+}
+.playlist{
+    width: 313px;
+    height: 380px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.playlist h2{
+    color: #DBE6FF;
+    font-family: "Gilroy-Medium";
+}
+
+.close-playlist{
+    display: flex;
+    width: 313px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#close-btn {
+    color: #EAF0FF;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#playlist-items {
+    margin-top: 20px;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+
+.playlist-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.playlist-item .details {
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-item .details .song-name {
+    font-weight: bold;
+    color: #eaf0ff;
+    font-family: "Gilroy-Medium";
+}
+
+.playlist-item .details .singer-name,
+.playlist-item .details .song-time {
+    font-size: 14px;
+    color: #7c92c5;
+    font-family: "Gilroy-Regular";
 }
