@@ -27,17 +27,27 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    position: absolute;
+    background-color: #091227;
     height: 100%;
     box-sizing: border-box;
+    z-index: -999;
 }
-
+h4{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 32px;
+    color: #eaf0ff;
+    font-family: "Gilroy-Regular";
+}
 .player {
-    margin: 2% auto;
+    margin: 30px auto;
     width: 467px;
     height: 987px;
     border-radius: 69px;
     background-color: #091227;
     position: relative;
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 50px 10px, rgba(255, 255, 255, 0.3) 0px 0px 100px 20px;
 }
 
 .iphone{
